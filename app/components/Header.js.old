@@ -1,0 +1,94 @@
+import React from "react";
+import {
+  AppBar,
+  Badge,
+  Grid2,
+  IconButton,
+  InputBase,
+  Toolbar,
+} from "@mui/material";
+// import { makeStyles } from "@mui/styles";
+
+import SearchIcon from "@mui/icons-material/Search";
+import CircleNotificationsIcon from "@mui/icons-material/CircleNotifications";
+import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
+import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
+
+import { makeStyles, withStyles } from "@mui/styles";
+
+// import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
+// import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
+// import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
+// import SearchIcon from '@material-ui/icons/Search';
+
+// // withStyles & makeStyles
+
+const style = {
+  root: {
+    backgroundColor: "#fff",
+    transform: "translateZ(0)",
+  },
+
+  searchInput: {
+    opacity: "0.6",
+    marginRight: "500px",
+    width: "500px",
+    // padding: `0px ${theme.spacing(1)}px`,
+    fontSize: "0.8rem",
+    "&:hover": {
+      backgroundColor: "#f2f2f2",
+    },
+
+    "& .MuiSvgIcon-root": {
+      // marginRight: theme.spacing(1),
+    },
+  },
+
+  btnRoot: {
+    backgroundColor: "green",
+  },
+  btnLabel: {
+    backgroundColor: "red",
+  },
+};
+
+const Header = (props) => {
+  const { classes } = props;
+
+  return;
+  <>
+    <AppBar position="static" className={classes.root}>
+      <Toolbar>
+        <Grid2 container alignItems="center">
+          <Grid2 item>
+            <InputBase
+              placeholder="Search topics"
+              className={classes.searchInput}
+              startAdornment={<SearchIcon fontSize="large" />}
+            />
+          </Grid2>
+
+          <Grid2 item>
+            <IconButton
+              classes={{ root: classes.btnRoot, label: classes.btnLabel }}
+            >
+              <Badge badgeContent={5} color="error">
+                <CircleNotificationsIcon fontSize="large" />
+              </Badge>
+            </IconButton>
+            <IconButton>
+              <Badge badgeContent={3} color="success">
+                <ChatBubbleIcon fontSize="large" />
+              </Badge>
+            </IconButton>
+            <IconButton>
+              <PowerSettingsNewIcon fontSize="large" />
+            </IconButton>
+          </Grid2>
+        </Grid2>
+      </Toolbar>
+    </AppBar>
+  </>;
+};
+
+export default withStyles(style)(Header);
